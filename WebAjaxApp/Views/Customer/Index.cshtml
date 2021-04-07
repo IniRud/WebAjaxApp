@@ -1,0 +1,14 @@
+﻿@model IEnumerable<WebAjaxApp.Models.CustomerModel>
+
+
+    <form>
+        <ul>
+            @foreach (var item in Model)
+            {
+                <li>
+                    <input type="radio" name="Id" id="Id" value="@item.Id" />
+                    <label>@item.Name</label>
+                </li>
+            }
+        </ul>
+    </form>
