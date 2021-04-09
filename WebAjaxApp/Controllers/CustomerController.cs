@@ -24,5 +24,11 @@ namespace WebAjaxApp.Controllers
 
             return View(customers);
         }
+
+        public IActionResult ShowOnePerson(int Id)
+        {
+            CustomerModel c = customers.FirstOrDefault(x => x.Id == Id);
+            return PartialView(c);
+        }
     }
 }

@@ -1,7 +1,18 @@
 ﻿@model IEnumerable<WebAjaxApp.Models.CustomerModel>
+<style>
+    ul{
+        list-style-type:none;
+    }
+    #customerInformationArea{
+        border:1px solid red;
+        border-radius:5px;
+        margin:10px;
+    }
+</style>
 
+<p>Current Time: @DateTime.Now</p>
 
-    <form>
+    <form asp-action="ShowOnePerson" asp-controller="Customer">
         <ul>
             @foreach (var item in Model)
             {
@@ -11,4 +22,8 @@
                 </li>
             }
         </ul>
+        <input type="submit" id="selectCustomer" />
     </form>
+<div id="customerInformationArea">
+    <p>Display customer information here.</p>
+</div>
