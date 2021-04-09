@@ -5,10 +5,13 @@
 $(function () {
     console.log("The page has been loaded");
 
-    $("#selectCustomer").click(function () {
-        event.preventDefault();
-        console.log("select button was clicked");
 
+
+    $(".customerRadio").change(function () {
+        doCustomerUpdate();
+    });
+
+    function doCustomerUpdate() {
         $.ajax({
             type: "POST",
             url: 'Customer/ShowOnePerson',
@@ -18,6 +21,13 @@ $(function () {
                 $("#customerInformationArea").html(data);
             }
         });
+    }
+
+    $("#selectCustomer").click(function () {
+        event.preventDefault();
+        console.log("select button was clicked");
+
+        doCustomerUpdate();
 
     });
 });
